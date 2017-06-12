@@ -1,0 +1,11 @@
+.img-thumbnail{display:inline-block;max-width:100%;height:auto;padding:4px;line-height:1.42857143;
+                  background-color:#FFF;border:1px solid #DDD;border-radius:4px;transition:all 0.2s ease-in-out;}
+a:hover{text-decoration: none;color: #fff;}
+.container{width:80%;height:500px;margin:20px auto;}
+.container b{width:32%;margin: 10px 0;height:208px;position: relative;}
+h3{font-size:36px;color: #f6ff00;height:50px;}
+.container b img{width:363px;position: absolute;}
+.container b .datu{width:716px;opacity: 0;z-index:999;border:1px solid #000;position: absolute;left:-181px ;top:-105px;transition: .5s;}
+.container b:hover .datu{opacity: 1;cursor:pointer}
+
+

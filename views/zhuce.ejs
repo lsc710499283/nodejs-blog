@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/zhuce.css' />
+	</head>
+	<body>
+		<div id="zhezhaoceng"></div>
+		<%- include('index.ejs') %>
+		<div id="con">
+			<ul id="xuanxiang">
+				<li class="hongdi">邮箱注册</li>
+				<li>手机号注册</li>
+			</ul>
+			<p id="pppp1">我已经注册，现在就 <a  onclick="location.href='denglu'" style="color: dodgerblue;">登录</a></p>
+			<form action="/users/form2" method="post">
+			<ul id="biaoge">
+				<li><span>用户名：</span><input name="zh" id="v1"><div class="copdiv">4-20个字符，支持汉字、字母、数字及“-”、“_”组合"</div>
+					<div class="yanzheng">请输入用户名</div>
+				</li>
+				<li><span>设置密码：</span><input id="input1" name="pass" type="password">
+					<div class="copdiv">6-20个字符，建议由字母，数字与符号两种以上组成</div>
+				<div class="yanzheng">请输入密码</div></li>
+				<li><span>确认密码：</span><input id="input2" type="password" disabled="disabled">
+					<div class="copdiv">请再次输入密码</div>	<div class="yanzheng">请输入密码</div>
+				</li>
+				<li><span>手机号码：</span><input id="input3">
+					<div class="copdiv">请输入正确的手机号码</div>
+					<div class="yanzheng">手机号不能为空</div>
+				</li>
+				<li><span>滑动验证：</span><input id="input4" disabled="disabled" value="请按住滑块，拖动到最右边(假的)">
+					<em id="huakuai">>></em>
+					<div class="copdiv"></div>
+				<div class="yanzheng"></div></li>
+				<li><span>短信验证码：</span><input style="width:133px"><a>获取短信验证码</a>
+					<div class="copdiv">请输入短信验证码</div>
+				<div class="yanzheng">请输入短信验证码</div></li>
+				<li><span>推荐码(选填)：</span><input placeholder="填写推荐人 推荐码 帮好友赚收入"></li>
+				<li><span></span><input id="tijiao" type="submit" value="立即注册"></li>
+			</ul></form>
+		</div>
+	</body>
+	<script>
+			tijiao.onclick =function(){
+				if(v1.value==""||input1.value==""){
+					alert("内容不能为空")
+					return false;
+				}
+			}
+	</script>
+<script>
+
+	var ali = xuanxiang.getElementsByTagName('li');
+	for(let i=0;i<ali.length;i++){
+		ali[i].onclick = function(){
+			for(let k=0;k<ali.length;k++){
+				ali[k].className="";
+			}
+			this.className = "hongdi";
+		}
+	}
+</script>
+</html>

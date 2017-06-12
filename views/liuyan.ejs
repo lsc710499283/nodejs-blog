@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title><%= title %></title>
+	<link rel='stylesheet' href='/stylesheets/liuyan.css' />
+	<script src="/javascripts/jquery-1.11.0.js"></script>
+	</head>
+	<body>
+		<%- include('index.ejs') %>
+<div id="box">
+		<form id="ly" action="/users/liuyan" method="post" class="dark-matter">
+<h1>留言信息
+<span></span>
+</h1>
+<label>
+<span>标题 :</span>
+<input id="v1" type="text" name="bt" placeholder="内容不重要，但标题一定要长！" />
+</label>
+<label>
+<span>联系方式 :</span>
+<input id="email" type="text" name="email" placeholder="珍爱网/世纪佳缘/百合网/有缘网账号" />
+</label>
+<label>
+<span>留言内容 :</span>
+<textarea id="v2" name="neirong" placeholder="不留言无法返回。"></textarea>
+</label>
+<label>
+<span>性别 :</span><select name="selection">
+<option value="nv">女</option>
+<option value="nan">男　*(选男我就不看了)</option>
+</select>
+</label>
+<label>
+<span>&nbsp;</span>
+<input type="submit" id="btn" class="button" value="留 言" />
+</label>
+</form>
+<dl id="liuyanban">	
+	<h3><div id="liuyanbtn"></div> ←点此留言。</h3>
+	<h6 id="hh6"><span>楼层 </span> 标题:</h6>
+	<p>内容:</p>
+	<% ress.forEach(function(v,i){ %>
+	<dt><span><%- i+1 %>楼 </span> <%- v.bt %></dt>
+	<dd><%- v.neirong %></dd>
+	<% if(i==9){ %>
+	<dt><span>11楼 </span> 别留言了。</dt>
+	<dd>再留就炸了！</dd>
+	<% }%>
+	<%	}) %>
+
+</dl>
+
+<ul class="pagination">
+	<li><a href="#">首页</a></li>
+	<li><a href="#">上一页</a></li>
+	<li><a href="#">1</a></li>
+	<li><a href="#">2</a></li>
+	<li><a href="#">3</a></li>
+	<li><a href="#">下一页</a></li>
+	<li><a href="#">尾页</a></li>
+</ul>
+
+</div>
+<div id="zhezhaoceng"></div>
+
+	</body>
+<script>
+	btn.onclick =function(){
+		if(v1.value==""||v2.value==""){
+			alert("内容不能为空")
+			return false;
+		}else{
+			$('#zhezhaoceng').fadeOut(400)
+		}
+	}
+$('#liuyanbtn').on('click',function(){
+	$('#ly').fadeToggle(1000);
+	$('#zhezhaoceng').fadeIn(1000)
+})
+
+</script>
+</html>

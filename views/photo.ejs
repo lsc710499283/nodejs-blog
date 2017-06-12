@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href="/stylesheets/photo.css" />
+	</head>
+<script src="/javascripts/jquery-1.11.0.js"></script>
+	<style>
+#caidan {
+		position: absolute;
+		bottom: 2%;
+		width: 100%;
+		text-align: center;
+		font-size: 0;}
+#caidan img{width: 80px; display: inline;}
+	</style>
+	<body>
+		<%- include('index.ejs') %>
+		<div id="xiangce" class="container">
+			<h3 style="padding-left: 30px;">欧皇降临:</h3>
+			<b class="img-thumbnail"><img src="/images/1.jpg" /><img class="datu" src="/images/1.jpg" /></b>
+			<b class="img-thumbnail"><img src="/images/2.jpg" /><img class="datu" src="/images/2.jpg" /></b>
+			<b class="img-thumbnail"><img src="/images/20.png" /><img class="datu" src="/images/20.png" /></b>
+			<b class="img-thumbnail"><img src="/images/4.jpg" /><img class="datu" src="/images/4.jpg" /></b>
+			<b class="img-thumbnail"><img src="/images/21.png" /><img class="datu" src="/images/21.png" /></b>
+			<b class="img-thumbnail"><img src="/images/22.png" /><img class="datu" src="/images/22.png" /></b>
+		</div>
+		
+	<div id="caidan">
+		<img src="/images/1.png">
+		<img src="/images/2.png">
+		<img src="/images/3.png">
+		<img src="/images/4.png">
+		<img src="/images/5.png">
+		<img src="/images/6.png">
+		<img src="/images/7.png">
+		<img src="/images/8.png">
+		<img src="/images/9.png">
+		<img src="/images/10.png">
+		<img src="/images/11.png">
+		<img src="/images/12.png">
+	</div>
+	</body>
+</html>
+	<script>
+		var caidan=document.getElementById("caidan");
+		var img = caidan.getElementsByTagName('img');
+		document.onmousemove = function(ev){
+			var ev = ev || window.event;
+			var x = ev.clientX;
+			var y = ev.clientY;
+			
+			for(var i = 0; i < img.length; i++){
+				var yukuan = img[i].offsetWidth/2 + img[i].offsetLeft,
+					yugao  = img[i].offsetHeight/2 + caidan.offsetTop;
+				var kuan = yukuan - x,
+					gao  = yugao  - y;
+					jvli = Math.sqrt(Math.pow(kuan, 2) + Math.pow(gao, 2));
+					if(jvli <= 300){
+						img[i].style.width = (80 - jvli / 300 * 80) + 80 + 'px';
+					//	img[i].style.width = (300 - jvli +80 ) + 'px'
+					}
+			}
+		}
+	</script>

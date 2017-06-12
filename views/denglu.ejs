@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/denglu.css' />
+	</head>
+	<body>
+		<%- include('index.ejs') %>
+		<div id="d1">
+					<ul id="ul1">
+						<li><a class="hongdi">扫码登录</a></li><b style="color: #f4f4f4;height:54px;line-height: 54px;">|</b>
+						<li><a>账户登录</a></li>
+					</ul>
+					<div id="d2">
+						<div id="dd1"></div>
+						<p>打开手机<a>苹果ios</a>|<a>安卓anzhuo</a></p>
+						<p>扫一扫登录</p>
+						<p style="padding: 0; text-align: right;font-size: 14px;"><a  onclick="location.href='/zhuce'" style="color:cornflowerblue">免费注册</a></p>
+					</div>
+					<div id="dd2">
+						<form method="post" action="/users/form1">
+						<input name="zh" placeholder="手机号码/用户名/邮箱/门店会员卡号" />
+						<input name="pass" type="password" placeholder="密码" />
+						<p><input type="checkbox" id="check"/>自动登录<a>忘记密码</a><a>|</a><a onclick="location.href='/zhuce'">免费注册</a></p>
+						<input type="submit" value="登录" id="btn">
+						</form>
+					</div>
+					<div id="d3">
+						<div id="d4">
+							<a href="">门店会员首次登录</a>|
+							<a href="">QQ</a>|
+							<a href="">微信</a>|
+							<a href="">微博</a>|
+							<a href="">美付宝</a>
+						</div>
+					</div>
+				</div>
+	</body>
+	<script>
+	var ali=ul1.getElementsByTagName('a');
+
+	
+	ali[0].onclick = function(){
+		d2.style.display = "block";
+		dd2.style.display = 'none';
+		$("#ul1 a").removeClass("hongdi");
+		this.className = "hongdi";
+	}
+	ali[1].onclick = function(){
+		d2.style.display = "none";
+		dd2.style.display = 'block';
+		$("#ul1 a").removeClass("hongdi");
+		this.className = "hongdi";
+	}
+</script>
+</html>

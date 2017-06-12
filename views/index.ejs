@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!--<link rel='stylesheet' href='/stylesheets/index.css' />-->
+  </head>
+  <body>
+		<header></header>
+		<div class="top">
+			<div id="logo">LSC</div>
+			<nav>
+				<li><a onclick="location.href='/'">home</a></li>
+				<li><a onclick="location.href='/photo'">photo</a></li>
+				<li><a onclick="location.href='/liuyan'">liuyan</a></li>
+				<li><a onclick="location.href='/about'">about</a></li>
+				<li style="border: 0;"><a href='http://www.baidu.com'>link</a></li>
+				<% if(!user){ %>
+				<div class="btn" onclick="location.href='denglu'">登录</div>
+				<div onclick="location.href='/zhuce'" class="btn">注册</div>
+				<% }else{ %>
+				<span style="float: left;margin-top: 38px;">您好：<%- user %></span>
+				<div class="btn" onclick="location.href='/tuichu'">退出</div>
+				<% } %>
+			</nav>
+		</div>
+			
+
+
+  </body>
+</html>
